@@ -41,26 +41,22 @@
 
         <li class="nav-item">
             <a href="#" class="nav-link d-md-none mob_logo">
-                <img src="../../assets/images/Logo.svg" class="img-responsive">
+                <img src="../../assets/images/logo.svg" class="img-responsive">
             </a>
         </li>
 
         <!-- Nav Item - Search Dropdown (Visible Only mobile screen) -->
         <li class="nav-item dropdown no-arrow d-md-none ml-auto">
-            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="../../assets/images/search_icon.svg" style="width: 16px;">
             </a>
             <!-- Dropdown - Messages -->
-            <div class="dropdown-menu dropdown-menu-right p-2 shadow animated--grow-in shadow-lg"
-                aria-labelledby="searchDropdown">
+            <div class="dropdown-menu dropdown-menu-right p-2 shadow animated--grow-in shadow-lg" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search here..."
-                            aria-label="Search" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search here..." aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button"> <i class="fas fa-search fa-sm"></i>
-                            </button>
+                            <button class="btn btn-primary" type="button"> <i class="fas fa-search fa-sm"></i> </button>
                         </div>
                     </div>
                 </form>
@@ -86,39 +82,41 @@
         </li>
 
         <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img id="HeaderUserImg" class="rounded-circle me-lg-2" src="../../assets/images/defaultUser.jpg" alt=""
-                    style="width: 40px; height: 40px;">
-                <img id="MenuUserImg" class="rounded-circle" src="../../assets/images/defaultUser.jpg" alt=""
-                    style="width: 40px; height: 40px; display:none;">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img id="HeaderUserImg" class="rounded-circle me-lg-2" src="../../assets/images/user_1.jpg" alt="" style="width: 40px; height: 40px;">
+                <img id="MenuUserImg" class="rounded-circle" src="../../assets/images/user_1.jpg" alt="" style="width: 40px; height: 40px; display:none;">
             </a>
-            <div class="dropdown-menu dropdown-menu-right shadow-lg animated--grow-in userDropdown"
-                aria-labelledby="userDropdown">
+            <div class="dropdown-menu dropdown-menu-right shadow-lg animated--grow-in userDropdown" aria-labelledby="userDropdown">
                 <div class="text-center py-2">
-                    <div class="font-sb h6 text_col2 mb-1" id="HeaderUserNameLabel">Sumit Gore</div>
-                    <div class="mb-0" id="MenuUserNameLabel" style="display:none;">Sumit Gore</div>
+                    <div class="font-sb h6 text_col2 mb-1" id="HeaderUserNameLabel">John Doe</div>
+                    <div class="mb-0" id="MenuUserNameLabel" style="display:none;">Jhon Doe</div>
                     <div class="font-l text_col4 font-small" id="MenuUserTypeLabel">Admin</div>
                     <div style="display:none;" id="MenuUserRoleIdLabel">Admin</div>
+                    <div class="font-l text_col4 font-small">ravi.amin@systel.com</div>
                     <div class="dropdown-divider"></div>
                     <div class="profile_setting">
-                        <a class="d-inline mr-1" href="#"> <i class="fas fa-user fa-sm fa-fw mr-1 text_col5"></i>
-                            Profile </a> |
-                        <a class="d-inline ml-1 mr-1" href="#"> <i class="fas fa-cogs fa-sm fa-fw mr-1 text_col5"></i>
-                            Settings </a> |
-                        <a class="d-inline ml-1" href="#"> <i class="fas fa-user-cog fa-sm fa-fw mr-1 text_col5"></i>
-                            Admin </a>
+                        <a class="d-inline mr-1" href="#"> <i class="fas fa-user fa-sm fa-fw mr-1 text_col5"></i> Profile </a> |
+                        <a class="d-inline ml-1 mr-1" href="#"> <i class="fas fa-cogs fa-sm fa-fw mr-1 text_col5"></i> Settings </a> |
+                        <a class="d-inline ml-1" href="#"> <i class="fas fa-user-cog fa-sm fa-fw mr-1 text_col5"></i> Admin </a>
                     </div>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="btn btn-outline-secondary rounded-pill px-3" onclick="User.Signout()">
-                        Logout
-                    </a>
+                    <a href="#" class="btn btn-outline-secondary rounded-pill px-3" onclick="User.Signout()"> Logout </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item" id="AppVersionA">638295062216461756</a>
+                    <a href="#" class="dropdown-item" id="AppVersionA">@SessionObj.AppVersion</a>
                     <a href="#" class="dropdown-item" id="LayoutNumber" style="display:none;">L2</a>
                 </div>
             </div>
         </li>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
     </ul>
 </nav>
 
