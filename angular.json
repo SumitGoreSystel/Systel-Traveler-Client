@@ -35,7 +35,7 @@
               "node_modules/fontawesome-4.7/css/font-awesome.css"
             ],
             "scripts": [
-              "src/assets/js/popper.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },

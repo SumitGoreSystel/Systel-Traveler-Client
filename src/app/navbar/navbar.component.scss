@@ -1,0 +1,18 @@
+.nav-item{
+    align-self: center;
+    padding-left: 5px;
+}
+
+.dropdown-toggle::after{
+    content: none;
+}
+
+.hamburger:after {display: none;}
+.hamburger {width: 20px; height: 30px; margin-bottom: 0; position: relative; cursor: pointer; transition: all .3s ease}
+.hamburger .lines {background: transparent; display: block; width: 20px; height: 3px; border-radius: 50rem; transition: .3s; position: relative; top: 4px}
+.hamburger .lines:before, .hamburger .lines:after {display: block; height: 2px; background: #37474F; border-radius: 50rem; transition: .3s; position: absolute; left: 0; content: ''; transform-origin: 50% 50%; top: 0;}
+.hamburger .lines:before {transform: rotate3d(0,0,1,45deg); top: 8px; width: 20px}
+.hamburger .lines:after {transform: rotate3d(0,0,1,-45deg); top: 9px; width: 20px}
+.hamburger .lines {display: block; width: 20px; height: 2px; top: 12px; background-color: rgb(55,71,79, 0.7);}
+.hamburger .lines:before {transform: none; width: 14px; background-color: rgb(55,71,79, 0.5)}
+.hamburger .lines:after {transform: none; top: -8px; width: 7px; background-color: rgb(55,71,79, 0.3)}
