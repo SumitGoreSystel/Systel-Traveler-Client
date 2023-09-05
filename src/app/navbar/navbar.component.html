@@ -14,7 +14,7 @@
 
     <!-- Topbar Search -->
     <form class="d-none d-sm-inline-block form-inline m-auto my-2 my-md-0  navbar-search main_search">
-        <input type="text" id="globalSearch" class="form-control bg-light border-0 small" placeholder="NEW  NAVBAR"
+        <input type="text" id="globalSearch" class="form-control bg-light border-0 small" placeholder="Search anything..."
             onkeyup="GlobalSearch.SearchText()" aria-label="Search" aria-describedby="basic-addon2" autocomplete="off">
         <img src="../../assets/images/search_icon.svg">
         <div class="search_div shadow" id="GlobalSearchList" style="display:none;">
@@ -41,7 +41,7 @@
 
         <li class="nav-item">
             <a href="#" class="nav-link d-md-none mob_logo">
-                <img src="../../assets/images/logo.svg" class="img-responsive">
+                <img src="../../assets/images/Logo.svg" class="img-responsive">
             </a>
         </li>
 
@@ -80,13 +80,11 @@
                 </a>
             </div>
         </li>
-
-        <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item">
+            <div class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">
                 <img id="HeaderUserImg" class="rounded-circle me-lg-2" src="../../assets/images/user_1.jpg" alt="" style="width: 40px; height: 40px;">
-                <img id="MenuUserImg" class="rounded-circle" src="../../assets/images/user_1.jpg" alt="" style="width: 40px; height: 40px; display:none;">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right shadow-lg animated--grow-in userDropdown" aria-labelledby="userDropdown">
+            </div>
+            <div class="dropdown-menu dropdown-menu-right shadow-lg">
                 <div class="text-center py-2">
                     <div class="font-sb h6 text_col2 mb-1" id="HeaderUserNameLabel">John Doe</div>
                     <div class="mb-0" id="MenuUserNameLabel" style="display:none;">Jhon Doe</div>
@@ -107,16 +105,6 @@
                 </div>
             </div>
         </li>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
     </ul>
 </nav>
 
