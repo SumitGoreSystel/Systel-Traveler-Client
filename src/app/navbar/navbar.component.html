@@ -1,0 +1,150 @@
+<nav class="navbar navbar-expand navbar-light bg-white mb-4 static-top" style="height: 4.375rem;">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline sidebarToggler">
+        <div id="sidebarToggle" (click)="sidebarOpen()">
+            <span class="lines"></span>
+        </div>
+    </div>
+
+    <a class="sidebar-brand mr-3">
+        <div class="sidebar-brand-text"><img src="../../assets/images/Logo.svg" class="img-responsive">
+        </div>
+    </a>
+
+    <!-- Topbar Search -->
+    <form class="d-none d-sm-inline-block form-inline m-auto my-2 my-md-0  navbar-search main_search">
+        <input type="text" id="globalSearch" class="form-control bg-light border-0 small" placeholder="NEW  NAVBAR"
+            onkeyup="GlobalSearch.SearchText()" aria-label="Search" aria-describedby="basic-addon2" autocomplete="off">
+        <img src="../../assets/images/search_icon.svg">
+        <div class="search_div shadow" id="GlobalSearchList" style="display:none;">
+            <div class="search_list shadow">
+                <ul id="suggestionlist">
+                </ul>
+            </div>
+            <div id="GlobalSearchShowAll"
+                style="height:35px; text-align:center;background-color: white; padding:10px 0px 10px 0px;border-radius:0px 10px 0px 10px;"
+                onclick="GlobalSearch.ShowAll()">
+                <a href="#"><u></u></a>
+            </div>
+        </div>
+    </form>
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav top_navbar">
+        <li class="nav-item">
+            <a href="#" id="sidebarToggleTop" class="btn btn-link d-md-none nav-link">
+                <div class="hamburger">
+                    <span class="lines"></span>
+                </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link d-md-none mob_logo">
+                <img src="../../assets/images/Logo.svg" class="img-responsive">
+            </a>
+        </li>
+
+        <!-- Nav Item - Search Dropdown (Visible Only mobile screen) -->
+        <li class="nav-item dropdown no-arrow d-md-none ml-auto">
+            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img src="../../assets/images/search_icon.svg" style="width: 16px;">
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-menu dropdown-menu-right p-2 shadow animated--grow-in shadow-lg"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search here..."
+                            aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button"> <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <div class="nav-link">
+                <a href="#" class="alert_icon">
+                    <div class="reddot"></div>
+                    <img src="../../assets/images/notification_icon.svg">
+                </a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <div class="nav-link">
+                <a href="#" class="alert_icon">
+                    <div class="reddot"></div>
+                    <img src="../../assets/images/msg_icon.svg">
+                </a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img id="HeaderUserImg" class="rounded-circle me-lg-2" src="../../assets/images/defaultUser.jpg" alt=""
+                    style="width: 40px; height: 40px;">
+                <img id="MenuUserImg" class="rounded-circle" src="../../assets/images/defaultUser.jpg" alt=""
+                    style="width: 40px; height: 40px; display:none;">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow-lg animated--grow-in userDropdown"
+                aria-labelledby="userDropdown">
+                <div class="text-center py-2">
+                    <div class="font-sb h6 text_col2 mb-1" id="HeaderUserNameLabel">Sumit Gore</div>
+                    <div class="mb-0" id="MenuUserNameLabel" style="display:none;">Sumit Gore</div>
+                    <div class="font-l text_col4 font-small" id="MenuUserTypeLabel">Admin</div>
+                    <div style="display:none;" id="MenuUserRoleIdLabel">Admin</div>
+                    <div class="dropdown-divider"></div>
+                    <div class="profile_setting">
+                        <a class="d-inline mr-1" href="#"> <i class="fas fa-user fa-sm fa-fw mr-1 text_col5"></i>
+                            Profile </a> |
+                        <a class="d-inline ml-1 mr-1" href="#"> <i class="fas fa-cogs fa-sm fa-fw mr-1 text_col5"></i>
+                            Settings </a> |
+                        <a class="d-inline ml-1" href="#"> <i class="fas fa-user-cog fa-sm fa-fw mr-1 text_col5"></i>
+                            Admin </a>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="btn btn-outline-secondary rounded-pill px-3" onclick="User.Signout()">
+                        Logout
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item" id="AppVersionA">638295062216461756</a>
+                    <a href="#" class="dropdown-item" id="LayoutNumber" style="display:none;">L2</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<div id="accordionSidebar" [ngClass]="isStyled ? 'sidebar' : 'sidebar toggled'">
+    <ul class="navbar-nav accordion" id="MainNavigationBar">
+        <li class="nav-item">
+            <a class="nav-link collapsed">
+                <i><i class="fa fa-user me-2"></i></i> <span> Users</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed">
+                <i><i class="fa fa-tachometer me-2"></i></i> <span> Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed">
+                <i><i class="fa fa-id-card me-2"></i></i> <span> Admin</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed">
+                <i><i class="fa fa-tasks me-2"></i></i> <span> Traveler</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<app-base></app-base>
