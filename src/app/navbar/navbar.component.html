@@ -1,4 +1,5 @@
-<div>
+<div class="main">
+
     <nav class="navbar navbar-expand navbar-light bg-white mb-4 static-top" style="height: 4.375rem;">
     
         <!-- Sidebar Toggler (Sidebar) -->
@@ -156,8 +157,8 @@
             </ul>
         </div>
     
-        <div>
-            <div class="container-fluid" id="LayoutContainerFluid">
+        <div class="layoutMain">
+            <div id="LayoutContainerFluid" class="container-fluid" [ngClass]="isStyled ? 'outletMain toggled' : 'outletMain'" >
                 <router-outlet></router-outlet>
             </div>
             <footer class="sticky-footer bg-white container-fluid">
