@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  myForm: FormGroup;
+  loginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private serverService:ServerService,private router:Router) {
-    this.myForm = this.fb.group({
+    this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required],
       companyCode:['string']
@@ -20,13 +20,18 @@ export class LoginComponent {
   }
 
   loginUser() {
-    if (this.myForm.valid) {
-      const formData = this.myForm.value;
+    if (this.loginForm.valid) {
+      const formData = this.loginForm.value;
       console.log(formData);
       this.serverService.userlogin(formData).subscribe(res=>{
         console.log(res.data)
         if( res.data.token.trim() != ""){
-          localStorage.setItem('token', res.data.token.trim())
+          localStorage.setItem('access_token', res.data.token.trim())
+          this.serverService.validateToken().subscribe(res=>{
+            console.log(res)
+            localStorage.setItem('access_user',JSON.stringify(res) )
+          })
+          
         }
       })
     }

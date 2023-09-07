@@ -12,7 +12,7 @@ export class ServerService {
   constructor(private http: HttpClient, private router:Router) { }
 
   isAuthenticated() {
-    if(localStorage.getItem('token')!==null){
+    if(localStorage.getItem('access_token')!==null){
 
       return true;
     }else{
@@ -30,6 +30,10 @@ export class ServerService {
   }
   userlogin(data: any): Observable<any> {
     return this.http.post<any>(`https://localhost:44306/users/auth`, data);
+  }
+
+  validateToken(){
+    return this.http.get<any>(`https://localhost:44306/users/ValidateToken`);
   }
 
 }
