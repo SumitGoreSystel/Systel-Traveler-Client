@@ -30,7 +30,7 @@ $--amber-col : #F89C00;
     top: 4px;
 }
 .sidebar{
-    width: 14rem
+    width: 14rem;
 }
 
 .main_search {
@@ -74,9 +74,25 @@ footer.sticky-footer {
 }
 
 
-#LayoutContainerFluid{
-    padding-left: 90px;
-}	
+.outletMain.toggled{
+    padding-left: 14rem !important;
+    // padding-left: 14rem;
+}
+
+.outletMain{
+    padding-left: 90px !important;
+}
+	
+
+.layoutMain{
+    overflow-y: scroll; 
+    max-height: calc(100vh - 4.375rem);
+}
+
+.main{
+    overflow: hidden;
+    max-height: 100vh;
+}
 
 
 
