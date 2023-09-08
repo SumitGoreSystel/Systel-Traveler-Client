@@ -11,6 +11,9 @@
                 <div class="login_block">
                     <img src="../../assets/images/logo_white.svg" class="logo">
                     <div class="text-center my-4 login_hd">Login</div>
+                      <div *ngIf="loginError !== null" class="alert alert-danger" role="alert">
+                        {{loginError}}.
+                      </div>
                     <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
                         <input type="text" placeholder="UserID" formControlName="userName" class="form-control rounded-pill mb-3">
                         <input type="password" placeholder="Password" formControlName="password" class="form-control rounded-pill mb-2">

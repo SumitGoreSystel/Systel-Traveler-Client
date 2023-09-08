@@ -90,11 +90,11 @@
                 </div>
                 <div class="dropdown-menu dropdown-menu-right shadow-lg">
                     <div class="text-center py-2">
-                        <div class="font-sb h6 text_col2 mb-1" id="HeaderUserNameLabel">John Doe</div>
+                        <div class="font-sb h6 text_col2 mb-1" id="HeaderUserNameLabel">{{this.userService.UserData.userName}}</div>
                         <div class="mb-0" id="MenuUserNameLabel" style="display:none;">Jhon Doe</div>
-                        <div class="font-l text_col4 font-small" id="MenuUserTypeLabel">Admin</div>
+                        <div class="font-l text_col4 font-small" id="MenuUserTypeLabel">{{this.userService.UserData.designation}}</div>
                         <div style="display:none;" id="MenuUserRoleIdLabel">Admin</div>
-                        <div class="font-l text_col4 font-small">ravi.amin@systel.com</div>
+                        <div class="font-l text_col4 font-small">{{this.userService.UserData.emailId}}</div>
                         <div class="dropdown-divider"></div>
                         <div class="profile_setting">
                             <a class="d-inline mr-1" href="#"> <i class="fas fa-user fa-sm fa-fw mr-1 text_col5"></i>
@@ -131,28 +131,15 @@
                                 </div>'
                             </div>'
                         </li> -->
-    
-    
-                <li class="nav-item" [routerLink]="['/base']">
-                    <a class="nav-link collapsed">
-                        <i><i class="fa fa-user me-2"></i></i> <span> Users</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link collapsed">
-                        <i><i class="fa fa-tachometer me-2"></i></i> <span> Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link collapsed">
-                        <i><i class="fa fa-id-card me-2"></i></i> <span> Admin</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link collapsed">
-                        <i><i class="fa fa-tasks me-2"></i></i> <span> Traveler</span>
-                    </a>
-                </li>
+
+                <ng-container *ngFor="let menu of userMenu.items">
+
+                    <li class="nav-item" *ngIf="menu.isParent === 1">
+                        <a class="nav-link collapsed" >
+                            <i class={{trimOutsideDoubleQuotes(menu.menuIconUrl)}} aria-hidden="true"></i> <span> {{menu.subRoleName}}</span>
+                        </a>
+                    </li>
+                </ng-container>
             </ul>
         </div>
     

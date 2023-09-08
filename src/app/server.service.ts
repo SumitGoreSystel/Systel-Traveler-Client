@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
 
@@ -13,7 +13,6 @@ export class ServerService {
 
   isAuthenticated() {
     if(localStorage.getItem('access_token')!==null){
-
       return true;
     }else{
       return false

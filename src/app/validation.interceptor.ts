@@ -19,15 +19,12 @@ export class ValidationInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('access_token');
     if (token) {
       request = request.clone({
-        
         setHeaders: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         }
       })
     }
-    console.log("called in interceptors , this is header request", request);
-    
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
          let errorMsg = '';
