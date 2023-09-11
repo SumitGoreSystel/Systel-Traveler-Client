@@ -7,7 +7,13 @@ import { BaseComponent } from './traveler-main/base/base.component';
 
 const routes: Routes = [
   {  path: 'login', component: LoginComponent },
-  { path: 'base', component : BaseComponent },
+  {
+    path: '',
+    canActivate: [authGuard], // Apply the AuthGuard here
+    children: [
+      { path: '', component: BaseComponent },
+    ]
+  },
   { path: '**', redirectTo: '' }
 ];
 

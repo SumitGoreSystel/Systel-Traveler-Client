@@ -7,15 +7,16 @@
                 <span class="lines"></span>
             </div>
         </div>
-    
+
         <a class="sidebar-brand mr-3">
             <div class="sidebar-brand-text"><img src="../../assets/images/Logo.svg" class="img-responsive">
             </div>
         </a>
         <!-- Topbar Search -->
         <form class="d-none d-sm-inline-block form-inline m-auto my-2 my-md-0  navbar-search main_search">
-            <input type="text" id="globalSearch" class="form-control bg-light border-0 small" placeholder="Search here..."
-                onkeyup="GlobalSearch.SearchText()" aria-label="Search" aria-describedby="basic-addon2" autocomplete="off">
+            <input type="text" id="globalSearch" class="form-control bg-light border-0 small"
+                placeholder="Search here..." onkeyup="GlobalSearch.SearchText()" aria-label="Search"
+                aria-describedby="basic-addon2" autocomplete="off">
             <img src="../../assets/images/search_icon.svg">
             <div class="search_div shadow" id="GlobalSearchList" style="display:none;">
                 <div class="search_list shadow">
@@ -38,13 +39,13 @@
                     </div>
                 </a>
             </li>
-    
+
             <li class="nav-item">
                 <a href="#" class="nav-link d-md-none mob_logo">
                     <img src="../../assets/images/Logo.svg" class="img-responsive">
                 </a>
             </li>
-    
+
             <!-- Nav Item - Search Dropdown (Visible Only mobile screen) -->
             <li class="nav-item dropdown no-arrow d-md-none ml-auto">
                 <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
@@ -59,13 +60,14 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search here..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button"> <i class="fas fa-search fa-sm"></i> </button>
+                                <button class="btn btn-primary" type="button"> <i class="fas fa-search fa-sm"></i>
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
             </li>
-    
+
             <li class="nav-item">
                 <div class="nav-link">
                     <a href="#" class="alert_icon">
@@ -74,7 +76,7 @@
                     </a>
                 </div>
             </li>
-    
+
             <li class="nav-item">
                 <div class="nav-link">
                     <a href="#" class="alert_icon">
@@ -85,23 +87,27 @@
             </li>
             <li class="nav-item">
                 <div class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">
-                    <img id="HeaderUserImg" class="rounded-circle me-lg-2" src="../../assets/images/defaultUser.jpg" alt=""
-                        style="width: 40px; height: 40px;">
+                    <img id="HeaderUserImg" class="rounded-circle me-lg-2" src="../../assets/images/defaultUser.jpg"
+                        alt="" style="width: 40px; height: 40px;">
                 </div>
                 <div class="dropdown-menu dropdown-menu-right shadow-lg">
                     <div class="text-center py-2">
-                        <div class="font-sb h6 text_col2 mb-1" id="HeaderUserNameLabel">{{this.userService.UserData.userName}}</div>
+                        <div class="font-sb h6 text_col2 mb-1" id="HeaderUserNameLabel">
+                            {{this.userService.UserData.userName}}</div>
                         <div class="mb-0" id="MenuUserNameLabel" style="display:none;">Jhon Doe</div>
-                        <div class="font-l text_col4 font-small" id="MenuUserTypeLabel">{{this.userService.UserData.designation}}</div>
+                        <div class="font-l text_col4 font-small" id="MenuUserTypeLabel">
+                            {{this.userService.UserData.designation}}</div>
                         <div style="display:none;" id="MenuUserRoleIdLabel">Admin</div>
                         <div class="font-l text_col4 font-small">{{this.userService.UserData.emailId}}</div>
                         <div class="dropdown-divider"></div>
                         <div class="profile_setting">
                             <a class="d-inline mr-1" href="#"> <i class="fas fa-user fa-sm fa-fw mr-1 text_col5"></i>
                                 Profile </a> |
-                            <a class="d-inline ml-1 mr-1" href="#"> <i class="fas fa-cogs fa-sm fa-fw mr-1 text_col5"></i>
+                            <a class="d-inline ml-1 mr-1" href="#"> <i
+                                    class="fas fa-cogs fa-sm fa-fw mr-1 text_col5"></i>
                                 Settings </a> |
-                            <a class="d-inline ml-1" href="#"> <i class="fas fa-user-cog fa-sm fa-fw mr-1 text_col5"></i>
+                            <a class="d-inline ml-1" href="#"> <i
+                                    class="fas fa-user-cog fa-sm fa-fw mr-1 text_col5"></i>
                                 Admin </a>
                         </div>
                         <div class="dropdown-divider"></div>
@@ -113,43 +119,39 @@
                 </div>
             </li>
         </ul>
-    
+
     </nav>
-    
+
     <div>
-        <div id="accordionSidebar" [ngClass]="isStyled ? 'sidebar' : 'sidebar toggled'" >
-            <ul class="navbar-nav accordion" id="MainNavigationBar">
-                <!-- <li class="nav-item">'
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse"
-                                data-target="#masterNav_' + data[i].menuId + '" aria-expanded="true"
-                                aria-controls="masterNav_' + data[i].menuId + '"
-                                onclick="Navigation.LoadPage(\'' + data[i].templatePath + '?' + AppVersion + '\',\'' + data[i].subRoleCode + '\', event)">
-                                <i>' + data[i].menuIconUrl + '</i> <span>' + data[i].subRoleName + '</span> </a>'
-                            <div id="masterNav_' + data[i].menuId + '" class="collapse" aria-labelledby="headingUtilities"
-                                data-parent="#accordionSidebar">'
-                                <div id="ParenMenu_' + data[i].menuId + '" class="bg-gray-100 py-2 collapse-inner rounded">'
-                                </div>'
-                            </div>'
-                        </li> -->
-
-                <ng-container *ngFor="let menu of userMenu.items">
-
-                    <li class="nav-item" *ngIf="menu.isParent === 1">
-                        <a class="nav-link collapsed" >
-                            <i class={{trimOutsideDoubleQuotes(menu.menuIconUrl)}} aria-hidden="true"></i> <span> {{menu.subRoleName}}</span>
+        <div id="accordionSidebar" [ngClass]="isStyled ? 'sidebar' : 'sidebar toggled'">
+            <ul class="navbar-nav accordion" id="accordion">
+                <!-- <ng-container *ngFor="let menu of parentMenu"> -->
+                    <li class="nav-item" *ngFor="let menu of parentMenu">
+                        <a class="nav-link collapsed " [routerLink]="['/base']" data-toggle="collapse"
+                            [attr.data-target]="'#collapseOne' + menu.menuId">
+                            <i class={{trimOutsideDoubleQuotes(menu.menuIconUrl)}} aria-hidden="true"></i> <span>
+                                {{menu.subRoleName}}</span>
                         </a>
+                        <div class="nav-child-menulist">
+                            <a *ngFor="let childMenu of menu.childMenuList" [attr.id]="'collapseOne' + childMenu.parentMenuId"
+                                class="collapse" data-parent="#accordion">
+                                <i class="fa fa-play"></i><span>{{childMenu.subRoleName}} </span>
+                            </a>
+                        </div>
                     </li>
-                </ng-container>
+                <!-- </ng-container> -->
             </ul>
         </div>
-    
+
         <div class="layoutMain">
-            <div id="LayoutContainerFluid" class="container-fluid" [ngClass]="isStyled ? 'outletMain toggled' : 'outletMain'" >
+            <div id="LayoutContainerFluid" class="container-fluid"
+                [ngClass]="isStyled ? 'outletMain toggled' : 'outletMain'">
                 <router-outlet></router-outlet>
             </div>
             <footer class="sticky-footer bg-white container-fluid">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto"> <span>Copyright © 2023 Systel. All rights reserved.</span>
+                    <div class="copyright text-center my-auto"> <span>Copyright © 2023 Systel. All rights
+                            reserved.</span>
                     </div>
                 </div>
             </footer>

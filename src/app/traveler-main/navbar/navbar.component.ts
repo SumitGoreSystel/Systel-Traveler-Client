@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ServerService } from '../../server.service';
-import { User, UserMenu } from 'src/app/interface/User';
+import { MenuDataItem, ParentMenu, User} from 'src/app/interface/User';
 import { UserService } from 'src/app/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,23 +12,36 @@ import { UserService } from 'src/app/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private serverService:ServerService,public userService:UserService){}
+  constructor(private router:Router, private serverService:ServerService,public userService:UserService){}
   
-  userMenu:UserMenu = {
-    items: []
-  }
+ 
+
+  parentMenu: ParentMenu[] = []
 
   ngOnInit(): void {
-    this.serverService.validateToken().subscribe((user:User)=>{
-      this.userService.UserData = user
-      let body={
-        UserId : user.userId
+    this.serverService.validateToken().subscribe({
+      next:(user:User)=>{
+        this.userService.UserData = user
+        let body={
+          UserId : user.userId
+        }
+        this.serverService.getMenuForUser(body).subscribe((userMenu:MenuDataItem)=>{
+            this.parentMenu = userMenu.items.filter((res:ParentMenu) => {
+              return res.isParent === 1;
+            }).map((res:ParentMenu) => {
+              res.childMenuList = userMenu.items.filter((usermenu:ParentMenu) => {
+                return usermenu.parentMenuId === res.menuId;
+              });
+              return res;
+            });
+            console.log(this.parentMenu);
+            
+          }
+        )
+      },
+      error:(err)=>{
+        this.serverService.SignOutUser()
       }
-      this.serverService.getMenuForUser(body).subscribe((userMenu:UserMenu)=>{
-        this.userMenu = userMenu
-        console.log(this.userMenu);
-        
-      })
     })
 
   }

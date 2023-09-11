@@ -9,27 +9,47 @@ export interface User {
     roleId: string
 }
 
-export interface UserMenu {
-    items: items[]
-}
+export interface ParentMenu {
+    userId: number;
+    roleId: number;
+    menuId: number;
+    parentMenuId: number;
+    subRoleId: number;
+    subRoleName: string;
+    subRoleCode: string;
+    subRoleDesc: string;
+    displayOrder: number;
+    defaultChildMenuId: number;
+    menuIconUrl: string;
+    templatePath: string;
+    isParent: number;
+    childrenCount: number;
+    childIsParent: number;
+    childMenuList: ChildMenu[];
+  }
+  
+  // child-menu.interface.ts
+  
+  export interface ChildMenu {
+    userId: number;
+    roleId: number;
+    menuId: number;
+    parentMenuId: number;
+    subRoleId: number;
+    subRoleName: string;
+    subRoleCode: string;
+    subRoleDesc: string;
+    displayOrder: number;
+    defaultChildMenuId: number;
+    menuIconUrl: string;
+    templatePath: string;
+    isParent: number;
+    childrenCount: number;
+    childIsParent: number;
+  }
 
-interface items {
-    userId: number,
-    roleId: number,
-    menuId: number,
-    parentMenuId: number,
-    subRoleId: number,
-    subRoleName: string,
-    subRoleCode: string,
-    subRoleDesc: string,
-    displayOrder: number,
-    defaultChildMenuId: 0,
-    menuIconUrl: string,
-    templatePath: string,
-    isParent: number,
-    childrenCount: number,
-    childIsParent: number
-}
-
+  export interface MenuDataItem {
+    items:ParentMenu[]
+  }
 
 
