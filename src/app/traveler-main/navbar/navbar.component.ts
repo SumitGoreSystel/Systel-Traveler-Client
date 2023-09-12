@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
       next:(user:User)=>{
         this.userService.UserData = user
         let body={
-          UserId : user.userId
+          UserId : this.userService.UserData.userId
         }
         this.serverService.getMenuForUser(body).subscribe((userMenu:MenuDataItem)=>{
             this.parentMenu = userMenu.items.filter((res:ParentMenu) => {
@@ -34,7 +34,6 @@ export class NavbarComponent implements OnInit {
               });
               return res;
             });
-            console.log(this.parentMenu);
             
           }
         )

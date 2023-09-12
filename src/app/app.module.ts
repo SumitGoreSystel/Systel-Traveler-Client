@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './traveler-main/navbar/navbar.component';
@@ -10,20 +9,19 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ValidationInterceptor } from './validation.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    BaseComponent,
     LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule
+    SharedModule
   ],
   providers: [
     {

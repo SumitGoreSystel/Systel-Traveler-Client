@@ -1,0 +1,34 @@
+<div>
+    <table id="example" class="table table-bordered com_table" style="width: 100%;">
+        <thead>
+            <tr class="text-dark">
+                <th style="border-left: 5px solid var(--orange-col);" scope="col">SrNo</th>
+                <th scope="col" *ngFor="let col of columns">{{col}}</th>
+            </tr>
+        </thead>
+        <tbody id="TemplateListBody">
+            <ng-container *ngIf="tableData; else noData">
+
+                <tr *ngFor="let rows of tableData; let i = index">
+                    <td>{{i+1}}</td>
+                    <ng-container *ngFor="let col of columns; let j = index">
+                        <td>{{ getRowValue(rows, j) }}</td>
+                    </ng-container>
+                    
+                </tr> 
+
+            </ng-container>
+           
+           
+            <ng-template #noData>
+                <tr>
+                    <td colspan="7">
+                        <font style="color:red;">No Records found..</font>
+                    </td>
+                </tr>
+              </ng-template>
+            
+
+        </tbody>
+    </table>
+</div>

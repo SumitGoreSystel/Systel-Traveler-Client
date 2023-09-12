@@ -127,7 +127,7 @@
             <ul class="navbar-nav accordion" id="accordion">
                 <!-- <ng-container *ngFor="let menu of parentMenu"> -->
                     <li class="nav-item" *ngFor="let menu of parentMenu">
-                        <a class="nav-link collapsed " [routerLink]="['/base']" data-toggle="collapse"
+                        <a class="nav-link collapsed " [routerLink]="menu.subRoleCode" data-toggle="collapse"
                             [attr.data-target]="'#collapseOne' + menu.menuId">
                             <i class={{trimOutsideDoubleQuotes(menu.menuIconUrl)}} aria-hidden="true"></i> <span>
                                 {{menu.subRoleName}}</span>
@@ -138,6 +138,9 @@
                                 <i class="fa fa-play"></i><span>{{childMenu.subRoleName}} </span>
                             </a>
                         </div>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/base']">base</a>
                     </li>
                 <!-- </ng-container> -->
             </ul>
