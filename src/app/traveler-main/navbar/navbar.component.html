@@ -133,7 +133,7 @@
                                 {{menu.subRoleName}}</span>
                         </a>
                         <div class="nav-child-menulist">
-                            <a *ngFor="let childMenu of menu.childMenuList" [attr.id]="'collapseOne' + childMenu.parentMenuId"
+                            <a *ngFor="let childMenu of menu.childMenuList" [routerLink]="childMenu.subRoleCode" [attr.id]="'collapseOne' + childMenu.parentMenuId"
                                 class="collapse" data-parent="#accordion">
                                 <i class="fa fa-play"></i><span>{{childMenu.subRoleName}} </span>
                             </a>

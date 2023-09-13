@@ -29,6 +29,7 @@ export class LoginComponent {
       this.serverService.userlogin(formData).subscribe(res=>{
         if( res.data.token.trim() != ""){
           localStorage.setItem('access_token', res.data.token.trim())
+          this.router.navigate(['/traveler'])
         }else{
           this.loginError=res.data.designation
         }

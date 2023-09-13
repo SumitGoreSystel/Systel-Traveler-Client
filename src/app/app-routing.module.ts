@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { authGuard } from './auth.guard';
-import { NavbarComponent } from './traveler-main/navbar/navbar.component';
-import { BaseComponent } from './traveler-main/base/base.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: '', loadChildren: () => import('./traveler-main/traveler-main.module').then(m => m.TravelerMainModule) },
+  { path: 'login', component: LoginComponent, title: 'Systel - Login' },
+  { path: '', loadChildren: () => import('./traveler-main/traveler-main.module').then(m => m.TravelerMainModule),canActivate:[AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
 
