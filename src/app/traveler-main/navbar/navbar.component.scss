@@ -137,7 +137,7 @@ footer.sticky-footer {
 
 
 .outletMain.toggled {
-    padding-left: 14rem !important;
+    padding-left: 14.5rem !important;
     // padding-left: 14rem;
 }
 
@@ -147,8 +147,10 @@ footer.sticky-footer {
 
 
 .layoutMain {
+    margin-top: -30px;
     overflow-y: scroll;
     max-height: calc(100vh - 4.375rem);
+    padding-bottom: 50px;
 }
 
 .main {

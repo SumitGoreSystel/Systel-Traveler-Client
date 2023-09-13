@@ -3,13 +3,19 @@
     <button type="button" class="btn btn-primary btn-sm">Create New</button>
 </div>
 
-<app-color-table 
-[columns]="['Name', 'Designation', 'Phone','Email','Username','CreatedBy','Assigned Workcenters','Active','useraction']" 
-[tableData]="UserList"
->
-</app-color-table>
 
-<app-color-table></app-color-table>
+
+<app-color-table
+  [columns]="['Name', 'Designation', 'Phone','Email','Username','CreatedBy','AssignedWorkcenter']" 
+  [tableData]="filteredUsers"
+  [enableCheckboxColumn]="true"
+  [checkboxStateBinding]="'Active'"
+  [checkboxColumnLabel]="'Active'"
+  (checkboxChange)="onCheckboxStatusChange($event)"
+  [enableActionColumn]="true"
+  [actionColumnLabel]="'Action'"
+  [actionOptions]="['a','b','c']"
+></app-color-table>
 
 
 

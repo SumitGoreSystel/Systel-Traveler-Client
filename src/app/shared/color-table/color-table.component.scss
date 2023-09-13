@@ -1,0 +1,7 @@
+.dots_dropdown .dropdown-toggle::after {display: none}
+.dots_dropdown .dropdown-toggle {border : none; background-color: transparent; color: var(--gray); outline: none !important;}
+.dots_dropdown .dropdown-menu {min-width: 7rem;}
+.dots_dropdown .dropdown-menu .dropdown-item {font-size: 12px; padding: 5px 15px; outline: none !important; border-bottom: 1px solid #eaeaea;}
+.dots_dropdown .dropdown-menu .dropdown-item i {width: 15px;}
+.dots_dropdown .dropdown-menu .dropdown-item:active {background-color: var(--orange-col) !important;}
+.dots_dropdown .dropdown-menu .dropdown-item:last-child {border-bottom: none;}
