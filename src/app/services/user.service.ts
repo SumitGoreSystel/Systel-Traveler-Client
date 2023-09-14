@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from './interface/User';
+import { User } from '../interface/User';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -17,5 +17,8 @@ export class UserService {
     mobileNo: '',
     roleId: ''
   }
+
+  authorizedPages:string[]=[]
+  
   constructor() { }
 }

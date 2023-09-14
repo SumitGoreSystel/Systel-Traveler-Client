@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerService {
+
+  private readonly BaseURL = environment.apiURL;
 
   constructor(private http: HttpClient, private router:Router) { }
 
@@ -25,14 +29,14 @@ export class ServerService {
   }
 
   getMenuForUser(data: any): Observable<any> {
-    return this.http.post<any>(`https://localhost:44306/menus/GetMenuForUser`, data);
+    return this.http.post<any>(`${this.BaseURL}/menus/GetMenuForUser`, data);
   }
   userlogin(data: any): Observable<any> {
-    return this.http.post<any>(`https://localhost:44306/users/auth`, data);
+    return this.http.post<any>(`${this.BaseURL}/users/auth`, data);
   }
 
   validateToken(){
-    return this.http.get<any>(`https://localhost:44306/users/ValidateToken`);
+    return this.http.get<any>(`${this.BaseURL}/users/ValidateToken`);
   }
 
 }

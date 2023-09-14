@@ -7,15 +7,17 @@ import {
   HttpResponse,
   HttpErrorResponse
 } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, finalize, Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { LoaderService } from './services/loader.service';
 
 @Injectable()
 export class ValidationInterceptor implements HttpInterceptor {
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private loaderService:LoaderService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    this.loaderService.showLoader();
     const token = localStorage.getItem('access_token');
     if (token) {
       request = request.clone({
@@ -37,6 +39,9 @@ export class ValidationInterceptor implements HttpInterceptor {
          }
          console.log(errorMsg);
          return throwError(()=>errorMsg);
+      }),
+      finalize(()=>{
+        this.loaderService.hideLoader();
       })
 )
       

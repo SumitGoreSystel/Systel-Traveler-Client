@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserData, UserMasterDTO } from 'src/app/interface/UserMasterDTO';
 import { Observable } from 'rxjs';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserMasterService {
+  private readonly BaseURL = environment.apiURL;
 
   constructor(private _http:HttpClient,private _userService:UserService) { }
 
@@ -38,7 +40,7 @@ export class UserMasterService {
   
 
   getUsersList(): Observable<UserData> {
-    return this._http.post<UserData>('https://localhost:44306/users/UserMasterCrud',this.UserMaster)
+    return this._http.post<UserData>(`${this.BaseURL}/users/UserMasterCrud`,this.UserMaster);
   }
 
 }

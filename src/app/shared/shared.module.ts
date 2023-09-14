@@ -4,13 +4,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ColorTableComponent } from './color-table/color-table.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
 
 @NgModule({
   declarations: [
-    ColorTableComponent
+    ColorTableComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,9 @@ import { ColorTableComponent } from './color-table/color-table.component';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ColorTableComponent
+    ColorTableComponent,
+    LoaderComponent
+
 
   ]
 })

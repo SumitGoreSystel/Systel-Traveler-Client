@@ -1,15 +1,22 @@
-import { Component } from '@angular/core';
-import { ServerService } from './server.service';
+import { Component, OnInit } from '@angular/core';
+import { ServerService } from './services/server.service';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Systel Traveler';
 
-  constructor(private serverService:ServerService){}
+  isLoading:boolean = false;
+  constructor(private serverService:ServerService, private loaderService:LoaderService){}
+  ngOnInit(): void {
+    this.loaderService.isLoading.subscribe((res:boolean)=>{
+      this.isLoading = res
+    })
+  }
 
   isLoggedIn(): boolean {
     return this.serverService.isAuthenticated();

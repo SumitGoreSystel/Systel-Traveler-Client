@@ -8,6 +8,7 @@ import { ValidationInterceptor } from '../validation.interceptor';
 import { UserComponent } from './User/user/user.component';
 import { BaseComponent } from './base/base.component';
 import { ColorTableComponent } from '../shared/color-table/color-table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -15,6 +16,7 @@ import { ColorTableComponent } from '../shared/color-table/color-table.component
   declarations: [
     UserComponent,
     BaseComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

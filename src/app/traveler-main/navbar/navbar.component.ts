@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ServerService } from '../../server.service';
+import { ServerService } from '../../services/server.service';
 import { MenuDataItem, ParentMenu, User} from 'src/app/interface/User';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +13,8 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router:Router, private serverService:ServerService,public userService:UserService){}
-  
+  constructor(private router:Router, private serverService:ServerService,public userService:UserService, private loaderService:LoaderService){}
+  isLoading:boolean = this.loaderService.isLoading.value
  
 
   parentMenu: ParentMenu[] = []
@@ -26,6 +27,7 @@ export class NavbarComponent implements OnInit {
           UserId : this.userService.UserData.userId
         }
         this.serverService.getMenuForUser(body).subscribe((userMenu:MenuDataItem)=>{
+            this.userService.authorizedPages = userMenu.items.map((res:ParentMenu)=>{ return res.subRoleCode})
             this.parentMenu = userMenu.items.filter((res:ParentMenu) => {
               return res.isParent === 1;
             }).map((res:ParentMenu) => {

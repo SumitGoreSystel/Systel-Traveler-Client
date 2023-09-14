@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ServerService } from '../server.service';
+import { ServerService } from '../services/server.service';
 import { Router } from '@angular/router';
 import { User } from '../interface/User';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private serverService:ServerService,private router:Router, private userService:UserService) {
@@ -19,6 +19,11 @@ export class LoginComponent {
       password: ['', Validators.required],
       companyCode:['string']
     });
+  }
+  ngOnInit(): void {
+    if(this.serverService.isAuthenticated()){
+      this.router.navigate(['/'])
+    }
   }
 
   loginError:string|null=null;
